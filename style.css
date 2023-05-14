@@ -1,0 +1,738 @@
+/* Write GOOD comments so that next developer ... */
+/* ( who happens to be a killer psycopath & knows where you stay ). */
+/* He's going to maintain this code; need NOT have to get back to you */
+
+/* ----------- ----------- ----------- ----------- ----------- ----------- */
+/* --------------------------- generic styling --------------------------- */
+/* ----------- ----------- ----------- ----------- ----------- ----------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap");
+
+:root {
+  /* color */
+
+  --clr-primary-pink: hsl(322, 100%, 66%);
+  --clr-neutral-very-pale-cyan: hsl(193, 100%, 96%);
+  --clr-neutral-very-dark-cyan: hsl(192, 100%, 9%);
+  --clr-neutral-grayish-blue: hsl(208, 11%, 55%);
+
+  /* fonts */
+
+  --ff-primary: "Open Sans", sans-serif;
+  --ff-secondary: "Poppins", sans-serif;
+
+  --fw-400: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  /* 62.5% of 16px browser font size is 10px */
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  /* 16px */
+  font-size: 1.6em;
+  font-family: var(--ff-secondary);
+
+  /* background-color: var(--color-main-bg); */
+  height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* ----------- ----------- ----------- ----------- ----------- ------------ */
+/* --------------------------- specific styling --------------------------- */
+/* ----------- ----------- ----------- ----------- ----------- ------------ */
+
+/* ----------- ----------- ----------- mobile first approach ----------- ----------- ----------- */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header-block"
+    "grow-together-block"
+    "flowing-conversations-block"
+    "your-users-block"
+    "footer-block";
+  gap: 4rem;
+  justify-items: center;
+
+  /* value as per style guide */
+  min-width: 37.5rem;
+}
+
+/* style 1st component - mobile */
+
+.header-block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "header-block__company-logo header-block__trial-button"
+    "header-block__product-title header-block__product-title"
+    "header-block__product-info header-block__product-info"
+    "header-block__product-trial-button header-block__product-trial-button"
+    "header-block__product-illustration header-block__product-illustration";
+  gap: 4rem;
+  align-items: center;
+
+  padding: 2rem;
+
+  background-color: var(--clr-neutral-very-pale-cyan);
+  background-image: url("../images/bg-hero-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: 0 -10rem;
+}
+
+.header-block__company-logo {
+  width: 70%;
+}
+
+.header-block__trial-button {
+  width: 75%;
+  background-color: white;
+
+  border: none;
+  border-radius: 2rem;
+
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-700);
+
+  justify-self: end;
+
+  padding: 0.6rem 0;
+}
+
+.header-block__product-title {
+  font-size: 2.6rem;
+  text-align: center;
+
+  margin-top: 6rem;
+}
+
+.header-block__product-info {
+  font-family: var(--ff-primary);
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header-block__product-trial-button {
+  width: 70%;
+  margin: 0 auto;
+
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+
+  padding: 1.2rem 0;
+
+  border: none;
+  border-radius: 2.5rem;
+
+  background: var(--clr-primary-pink);
+  color: var(--clr-neutral-very-pale-cyan);
+}
+
+/* style 2nd, 3rd & 4th component - mobile */
+
+.grow-together-block,
+.flowing-conversations-block,
+.your-users-block {
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  justify-items: center;
+
+  padding: 2rem;
+
+  box-shadow: 0 0 0.4rem var(--clr-neutral-grayish-blue);
+  border-radius: 2rem;
+}
+
+.grow-together-block {
+  grid-template-areas:
+    "grow-together-block__feature-image"
+    "grow-together-block__feature-title"
+    "grow-together-block__feature-info";
+}
+
+.flowing-conversations-block {
+  grid-template-areas:
+    "flowing-conversations-block__feature-image"
+    "flowing-conversations-block__feature-title"
+    "flowing-conversations-block__feature-info";
+}
+
+.your-users-block {
+  grid-template-areas:
+    "your-users-block__feature-image"
+    "your-users-block__feature-title"
+    "your-users-block__feature-info";
+}
+
+.grow-together-block__feature-image,
+.flowing-conversations-block__feature-image,
+.your-users-block__feature-image {
+  width: 85%;
+  margin-bottom: 4rem;
+}
+
+.grow-together-block__feature-title,
+.flowing-conversations-block__feature-title,
+.your-users-block__feature-title {
+  font-size: 2.4rem;
+}
+
+.grow-together-block__feature-info,
+.flowing-conversations-block__feature-info,
+.your-users-block__feature-info {
+  text-align: center;
+
+  font-family: var(--ff-primary);
+
+  color: var(--clr-neutral-grayish-blue);
+}
+
+/* style 5th component - mobile */
+.footer-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "footer-block__trial-info"
+    "footer-block__company-logo"
+    "footer-block__location-details"
+    "footer-block__phone-details"
+    "footer-block__email-details"
+    "footer-block__about-us"
+    "footer-block__what-we-do"
+    "footer-block__faq"
+    "footer-block__career"
+    "footer-block__blog"
+    "footer-block__contact-us"
+    "footer-block-social-component"
+    "footer-block__copyright";
+  gap: 1.5rem;
+
+  padding: 4rem 1rem;
+
+  background: linear-gradient(
+      to top,
+      var(--clr-neutral-very-dark-cyan),
+      var(--clr-neutral-very-dark-cyan)
+    )
+    no-repeat 0 15.5rem;
+}
+
+.footer-block__trial-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  padding: 4rem 0;
+
+  border-radius: 2rem;
+  box-shadow: 0 0 4px var(--clr-neutral-grayish-blue);
+
+  margin-bottom: 6rem;
+
+  background-color: white;
+}
+
+.footer-block-trial-info__title {
+  font-size: 2rem;
+}
+
+.footer-block-trial-info__button {
+  width: 60%;
+
+  background-color: var(--clr-primary-pink);
+  color: var(--clr-neutral-very-pale-cyan);
+
+  border: none;
+  border-radius: 3rem;
+
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+
+  padding: 1.25rem 0;
+}
+
+.footer-block__company-logo {
+  width: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.footer-block__location-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.footer-block__phone-details,
+.footer-block__email-details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.footer-block-location-details__icon {
+  width: 15%;
+  margin-top: 0.5rem;
+}
+
+.footer-block-location-details__info,
+.footer-block-phone-details__info,
+.footer-block-email-details__info {
+  color: var(--clr-neutral-very-pale-cyan);
+  font-family: var(--ff-primary);
+  padding-right: 2rem;
+}
+
+.footer-block__about-us,
+.footer-block__what-we-do,
+.footer-block__faq,
+.footer-block__career,
+.footer-block__blog,
+.footer-block__contact-us {
+  color: var(--clr-neutral-very-pale-cyan);
+  font-family: var(--ff-primary);
+}
+
+.footer-block__about-us {
+  margin-top: 3rem;
+}
+
+.footer-block__contact-us {
+  margin-bottom: 4rem;
+}
+
+.footer-block-social-component {
+  margin-bottom: 1.5rem;
+  justify-self: center;
+}
+
+.footer-block-social-component {
+  display: grid;
+  grid-template-columns: repeat(3, 3.5rem);
+  grid-template-areas: "footer-block-social-component__fb-icon footer-block-social-component__twitter-icon footer-block-social-component__instagram-icon";
+}
+
+.footer-block-social-component__fb-icon,
+.footer-block-social-component__twitter-icon,
+.footer-block-social-component__instagram-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  border: 0.1rem solid white;
+  border-radius: 50%;
+}
+
+.footer-block-social-component__fb-icon > img {
+  width: 35%;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
+}
+
+.footer-block-social-component__twitter-icon > img,
+.footer-block-social-component__instagram-icon > img {
+  width: 50%;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
+}
+
+.footer-block__copyright {
+  color: var(--clr-neutral-very-pale-cyan);
+
+  margin: 0 auto;
+
+  font-family: var(--ff-primary);
+  font-size: 1.2rem;
+}
+
+/* ----------- ----------- ----------- desktop second approach ----------- ----------- ----------- */
+
+@media screen and (min-width: 48rem) {
+  /*  desktop - component 1 styling  */
+
+  .header-block {
+    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-areas:
+      "header-block__company-logo header-block__trial-button"
+      "header-block__product-title header-block__product-illustration"
+      "header-block__product-info header-block__product-illustration"
+      "header-block__product-trial-button header-block__product-illustration";
+    grid-template-rows: 9rem 21rem 8rem auto;
+    gap: 3rem 2rem;
+
+    padding: 4rem 10rem 8rem 10rem;
+
+    background-image: url("../images/bg-hero-desktop.svg");
+    background-position: 0;
+  }
+
+  .header-block__company-logo {
+    width: 35%;
+  }
+
+  .header-block__trial-button {
+    width: 25%;
+    padding: 1.4rem 0;
+    margin-right: 4rem;
+
+    box-shadow: 0 0 0.4rem var(--clr-neutral-grayish-blue);
+  }
+
+  .header-block__product-title {
+    text-align: start;
+    font-size: 3.5rem;
+    margin: 0;
+    align-self: flex-end;
+  }
+
+  .header-block__product-info {
+    text-align: start;
+    width: 100%;
+  }
+
+  .header-block__product-trial-button {
+    margin: 0;
+    width: 55%;
+    align-self: flex-start;
+    padding: 1.6rem;
+  }
+
+  .header-block__product-illustration {
+    width: 90%;
+    justify-self: center;
+  }
+
+  /*  desktop - component 2, 3, 4 styling  */
+
+  .grow-together-block,
+  .your-users-block,
+  .flowing-conversations-block {
+    /* as per design set new values for padding, gap */
+
+    width: 82%;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem 16rem;
+
+    padding: 4rem 2rem 4rem 12rem;
+  }
+
+  .grow-together-block {
+    grid-template-areas:
+      "grow-together-block__feature-title grow-together-block__feature-image"
+      "grow-together-block__feature-info grow-together-block__feature-image";
+  }
+
+  .flowing-conversations-block {
+    grid-template-areas:
+      "flowing-conversations-block__feature-image flowing-conversations-block__feature-title"
+      "flowing-conversations-block__feature-image flowing-conversations-block__feature-info";
+  }
+
+  .your-users-block {
+    grid-template-areas:
+      "your-users-block__feature-title your-users-block__feature-image"
+      "your-users-block__feature-info your-users-block__feature-image";
+  }
+
+  .grow-together-block__feature-title,
+  .your-users-block__feature-title,
+  .flowing-conversations-block__feature-title {
+    text-align: start;
+    align-self: flex-end;
+    justify-self: start;
+  }
+
+  .grow-together-block__feature-info,
+  .your-users-block__feature-info,
+  .flowing-conversations-block__feature-info {
+    text-align: start;
+    justify-self: start;
+  }
+
+  .grow-together-block__feature-image,
+  .your-users-block__feature-image,
+  .flowing-conversations-block__feature-image {
+    /* reset values from mobile styling */
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /*  desktop - component 5 styling  */
+
+  .footer-block {
+    grid-template-columns: 1.8fr 0.5fr 0.5fr 1.2fr;
+    grid-template-areas:
+      "footer-block__trial-info footer-block__trial-info footer-block__trial-info footer-block__trial-info"
+      "footer-block__company-logo . . ."
+      "footer-block__location-details footer-block__about-us footer-block__career footer-block-social-component"
+      "footer-block__location-details footer-block__what-we-do footer-block__blog ."
+      "footer-block__phone-details footer-block__faq footer-block__contact-us ."
+      "footer-block__email-details . . . "
+      ". . . footer-block__copyright";
+    grid-template-rows: auto auto 3.5rem 3.5rem 3.5rem auto auto;
+    gap: 1rem 12rem;
+
+    padding: 0 10rem 6rem 10rem;
+  }
+
+  .footer-block__trial-info {
+    width: 65%;
+    margin: 0 auto 8rem auto;
+    padding: 6rem 0;
+  }
+
+  .footer-block-trial-info__title {
+    font-size: 3rem;
+  }
+
+  .footer-block-trial-info__button {
+    width: 45%;
+    padding: 2.5rem 0;
+    font-size: 1.6rem;
+    border-radius: 5rem;
+    font-family: var(--ff-secondary);
+  }
+
+  .footer-block__company-logo {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-block__about-us,
+  .footer-block__contact-us,
+  .footer-block__phone-details,
+  .footer-block__email-details {
+    /* reset margin from mobile layout */
+    margin: 0;
+  }
+
+  .footer-block-social-component {
+    justify-self: start;
+    /* reset margin from mobile layout */
+    margin: 0;
+  }
+}
+
+/* ----------- ----------- ----------- grid area names ----------- ----------- ----------- */
+
+/* component 1 */
+.header-block {
+  grid-area: header-block;
+}
+
+.header-block__company-logo {
+  grid-area: header-block__company-logo;
+}
+
+.header-block__trial-button {
+  grid-area: header-block__trial-button;
+}
+
+.header-block__product-title {
+  grid-area: header-block__product-title;
+}
+
+.header-block__product-info {
+  grid-area: header-block__product-info;
+}
+
+.header-block__product-trial-button {
+  grid-area: header-block__product-trial-button;
+}
+
+.header-block__product-illustration {
+  grid-area: header-block__product-illustration;
+}
+
+/* component 2 */
+.grow-together-block {
+  grid-area: grow-together-block;
+}
+
+.grow-together-block__feature-image {
+  grid-area: grow-together-block__feature-image;
+}
+
+.grow-together-block__feature-title {
+  grid-area: grow-together-block__feature-title;
+}
+
+.grow-together-block__feature-info {
+  grid-area: grow-together-block__feature-info;
+}
+
+/* component 3 */
+.flowing-conversations-block {
+  grid-area: flowing-conversations-block;
+}
+
+.flowing-conversations-block__feature-image {
+  grid-area: flowing-conversations-block__feature-image;
+}
+
+.flowing-conversations-block__feature-title {
+  grid-area: flowing-conversations-block__feature-title;
+}
+
+.flowing-conversations-block__feature-info {
+  grid-area: flowing-conversations-block__feature-info;
+}
+
+/* component 4 */
+.your-users-block {
+  grid-area: your-users-block;
+}
+
+.your-users-block__feature-image {
+  grid-area: your-users-block__feature-image;
+}
+
+.your-users-block__feature-title {
+  grid-area: your-users-block__feature-title;
+}
+
+.your-users-block__feature-info {
+  grid-area: your-users-block__feature-info;
+}
+
+/* component 5 */
+.footer-block {
+  grid-area: footer-block;
+}
+
+.footer-block__trial-info {
+  grid-area: footer-block__trial-info;
+}
+
+.footer-block-trial-info__title {
+  grid-area: footer-block-trial-info__title;
+}
+
+.footer-block-trial-info__button {
+  grid-area: footer-block-trial-info__button;
+}
+
+.footer-block__company-logo {
+  grid-area: footer-block__company-logo;
+}
+
+.footer-block__location-details {
+  grid-area: footer-block__location-details;
+}
+
+.footer-block-location-details__icon {
+  grid-area: footer-block-location-details__icon;
+}
+
+.footer-block-location-details__info {
+  grid-area: footer-block-location-details__info;
+}
+
+.footer-block__phone-details {
+  grid-area: footer-block__phone-details;
+}
+
+.footer-block-phone-details__icon {
+  grid-area: footer-block-phone-details__icon;
+}
+
+.footer-block-phone-details__info {
+  grid-area: footer-block-phone-details__info;
+}
+
+.footer-block__email-details {
+  grid-area: footer-block__email-details;
+}
+
+.footer-block-email-details__icon {
+  grid-area: footer-block-email-details__icon;
+}
+
+.footer-block-email-details__info {
+  grid-area: footer-block-email-details__info;
+}
+
+.footer-block__about-us {
+  grid-area: footer-block__about-us;
+}
+
+.footer-block__what-we-do {
+  grid-area: footer-block__what-we-do;
+}
+
+.footer-block__faq {
+  grid-area: footer-block__faq;
+}
+
+.footer-block__career {
+  grid-area: footer-block__career;
+}
+
+.footer-block__blog {
+  grid-area: footer-block__blog;
+}
+
+.footer-block__contact-us {
+  grid-area: footer-block__contact-us;
+}
+
+.footer-block__copyright {
+  grid-area: footer-block__copyright;
+}
+
+.footer-block-social-component {
+  grid-area: footer-block-social-component;
+}
+
+.footer-block-social-component__fb-icon {
+  grid-area: footer-block-social-component__fb-icon;
+}
+
+.footer-block-social-component__twitter-icon {
+  grid-area: footer-block-social-component__twitter-icon;
+}
+
+.footer-block-social-component__instagram-icon {
+  grid-area: footer-block-social-component__instagram-icon;
+}
